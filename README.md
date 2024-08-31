@@ -12,14 +12,25 @@ Project follows the Feature-Sliced Design (FSD) architecture. Check out the FSD 
 
 [Feature-Sliced Design](https://feature-sliced.design/)
 
-### Optimization
-
-To optimize the application performance and user experience, the project utilizes the following techniques:
-
--   Memoization (memo), callback memoization (useCallback), and memoized values (useMemo) are employed for optimizing component rendering and preventing unnecessary re-renders.
--   Code splitting is implemented to efficiently load and render components, improving initial page load times and overall performance.
--   When using Redux reducers, including async reducers, code splitting should also be followed to ensure efficient loading and management of state-related logic.
-
 ### Testing
 
 Unit Testing (Jest): `npm run test:unit`
+
+
+### Brief explanation
+## stack
+-   typescript
+-   react
+-   redux-toolkit
+-   tailwind and tailwind radix for styling
+
+## my comment
+-   При розробці використовував архітектуру FSD.
+-   таблицю реалізував самостійно без сторонніх бібліотек, була побудована в три етапи
+    -   самі елементи таблиці, окремо в `shared/ui/components/table` (`thead, tr, td, etc...`)
+    -   компонент `data-grid` `shared/ui/components/data-grid` просто приймає дані й показує в таблиці, нічого не знає про фільтри, пагінацію, екшени над строками таблиці і т.д..
+    -   компонент `table-view` приймає дані для таблиці, використовує `data-grid`, А ТАКОЖ оперує даними для побудови периферії таблиці - ті ж фільтри + це може бути пагінація, екшини над строками, клітинками таблиці, екшини одразу над багатьма строками, і т.д. ітд
+-   на верхніх рівнях використовується вже готовий компонент tableview
+-   окремі юзкейси будуються на рівні `features`, зараз там лежить фіча `users-list`, якби, наприклад потрібно було б показати окрему таблицю зі списком документів, наприклад, то потрібно було б створити окрему фічу `users-documents`.
+-   в моїй реалізації `features` це стейтлес модулі, `dumb`, хоча є й інші підходи до цього
+-   рівень `pages` state модулі, сервісний рівень, робота з даними.
