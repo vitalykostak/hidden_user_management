@@ -3,7 +3,7 @@
 node - v20.11.0
 
 -   `npm install` - Install project dependencies.
--   `npm run start:vite` - Start the project in the development environment using webpack.
+-   `npm run start:vite` - Start the project in the development environment using vite.
 
 ### Architecture
 
