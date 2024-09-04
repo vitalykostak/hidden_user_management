@@ -15,5 +15,10 @@ export const UsersList = <T extends string>(props: UsersListProps<T>) => {
 
     const dataGridProps = mapUsersItemsToDataGridProps(items, loading)
 
-    return <TableView dataGrid={dataGridProps} filterOptions={filterOptions} />
+    return (
+        <TableView
+            dataGrid={dataGridProps}
+            filterOptions={filterOptions}
+        />
+    )
 }

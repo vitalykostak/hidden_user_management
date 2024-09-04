@@ -1,8 +1,8 @@
-import { classNames } from '@/shared/lib/styles/classNames/classNames'
-
 import { DataGrid, type DataGridProps } from '../data-grid'
 import { Filter } from '../filter'
 import { type FilterOption } from '../filter/lib'
+
+import { TableViewLayout } from './tаble-view-lаyout'
 
 type TableViewProps<T extends string> = {
     dataGrid: DataGridProps
@@ -25,11 +25,17 @@ export const TableView = <T extends string>(props: TableViewProps<T>) => {
     }
 
     return (
-        <div className={classNames('flex flex-col gap-[10px] w-full', {}, [className])}>
-            <div className='w-full flex items-center justify-end'>
+        <TableViewLayout className={className}>
+            <TableViewLayout.Header>
                 <Filter options={filterOptions} />
-            </div>
-            <DataGrid columns={dataGrid.columns} rows={dataGrid.rows} loading={dataGrid.loading} />
-        </div>
+            </TableViewLayout.Header>
+            <TableViewLayout.Body>
+                <DataGrid
+                    columns={dataGrid.columns}
+                    rows={dataGrid.rows}
+                    loading={dataGrid.loading}
+                />
+            </TableViewLayout.Body>
+        </TableViewLayout>
     )
 }

@@ -1,5 +1,5 @@
 import { useAppDispatch } from '@/shared/lib/hooks'
-import { type FilterOption } from '@/shared/ui/components/filter/lib'
+import { type FilterOption } from '@/shared/ui/components/filter'
 
 import { useUsersFilters } from '../../model/selectors/users'
 import { usersActions } from '../../model/slices/users'
@@ -23,7 +23,8 @@ export const useUsersFilterOptions = () => {
             filterRemoved: removeFilterField('name'),
             input: {
                 value: filters.name || '',
-                valueChanged: setFilterField('name')
+                valueChanged: setFilterField('name'),
+                placeholder: 'Type name...'
             }
         },
         {
@@ -33,7 +34,8 @@ export const useUsersFilterOptions = () => {
             filterRemoved: removeFilterField('username'),
             input: {
                 value: filters.username || '',
-                valueChanged: setFilterField('username')
+                valueChanged: setFilterField('username'),
+                placeholder: 'Type username...'
             }
         },
         {
@@ -43,7 +45,8 @@ export const useUsersFilterOptions = () => {
             filterRemoved: removeFilterField('email'),
             input: {
                 value: filters.email || '',
-                valueChanged: setFilterField('email')
+                valueChanged: setFilterField('email'),
+                placeholder: 'Type email...'
             }
         },
         {
@@ -53,7 +56,8 @@ export const useUsersFilterOptions = () => {
             filterRemoved: removeFilterField('phone'),
             input: {
                 value: filters.phone || '',
-                valueChanged: setFilterField('phone')
+                valueChanged: setFilterField('phone'),
+                placeholder: 'Type phone...'
             }
         }
     ]

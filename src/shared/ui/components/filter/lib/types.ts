@@ -5,10 +5,11 @@ type BaseOption<T extends string> = {
     filterRemoved?: () => void
 }
 
-type InputOption<T extends string> = {
-    input?: {
+export type InputOption<T extends string> = {
+    input: {
         value: string
         valueChanged: (value: string) => void
+        placeholder?: string
     }
 } & BaseOption<T>
 
